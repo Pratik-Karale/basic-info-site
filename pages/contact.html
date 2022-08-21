@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | SpaceX</title>
+  <style>
+    body{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      width:100vw;
+      height:100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color:white;
+      background:black;
+    }
+    img{
+      width:40%;
+    }
+    p{
+      width:60vw;
+      line-height: 2;
+      color:rgb(202, 247, 255);
+    }
+    nav{
+      display: flex;
+      position: absolute;
+      top:0;
+      left:0;
+    }
+    ul{
+      display: flex;
+      list-style: none;
+    }
+    li{
+      margin:0.7rem 1rem 0 .5rem;
+    }
+    a{
+      color: white;
+      text-decoration: none;
+      /* font-weight: bold; */
+      letter-spacing: 0.1rem;
+      transition: 0.2s all;
+      border:0px solid red;
+    }
+    a[active-link]{
+      color:gray;
+    }
+    a:not([active-link]):hover{
+      border-bottom-width:5px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/contact" active-link>Contact</a></li>
+    </ul>
+  </nav>
+  <img src="image/spacex.webp" alt="🚀">
+  <p>Hello ? hello? looks like space doesnt have reception! </p>
+</body>
+</html>
