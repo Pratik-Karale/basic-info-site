@@ -1,32 +1,20 @@
-const http=require("http")
+const express=require("express")
 const fs=require("fs")
-// const JSON=require("json")
-const server=http.createServer((req,res)=>{
-  console.log(req)
-  res.statusCode=200;
-  if(req.url.includes("image")){
-    // s = fs.createReadStream(file);
-    res.setHeader("Content-Type","image/gif")
-    res.end(fs.readFileSync("./pages"+req.url.split("image")[1]))
-    return
-  }
+const app=express()
 
-  res.setHeader("Content-Type",'text/html')
-  switch (req.url) {
-    case "/":
-      res.end(fs.readFileSync("./pages/index.html"))
-      break;
-  
-    case "/about":
-      res.end(fs.readFileSync("./pages/about.html"))
-      break;
-  
-    case "/contact":
-      res.end(fs.readFileSync("./pages/contact.html"))
-      break;
-    default:
-      res.end(fs.readFileSync("./pages/404.html"))
-      break;
-  }
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
+
+app.get("/",(req,res)=>{
+  res.render("index")
 })
-server.listen(9969,()=>{})
+app.get("/contact",(req,res)=>{
+  res.render("contact")
+})
+app.get("/about",(req,res)=>{
+  res.render("about")
+})
+
+
+app.listen(9969)
